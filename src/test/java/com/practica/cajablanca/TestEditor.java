@@ -28,6 +28,8 @@ class TestEditor {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
+	
+	//************************** Camino de numPlabras *****************
 	//************************** Camino 1: 106-107-108-126 *****************
 	@Test
 	void testnumPalabras1() {
@@ -69,6 +71,7 @@ class TestEditor {
 		assertEquals(editor.numPalabras(1, 20, "I"), 11);
 	}
 	
+	//************************** Camino de mayorLongitud *****************
 	//************************** Camino 1: 152-153-154-167 *****************
 	@Test
 	void testmayorLongitud1() throws EmptyCollectionException {
@@ -89,6 +92,7 @@ class TestEditor {
 		assertEquals(editor.mayorLongitud(),"everybody");
 	}
 	
+	//************************** Camino de sustituirPalabras *****************
 	//************************** Camino 1: 175-176-197 *****************
 	@Test
 	void testsustituirPalabras1() {
