@@ -1,9 +1,8 @@
-package vv_caja_blanca;
+package com.practica.cajablanca;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import com.cajanegra.EmptyCollectionException;
-import com.practica.cajablanca.Editor;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -30,47 +29,53 @@ class TestEditor {
 	}
 	
 	//************************** Camino de numPlabras *****************
-	//************************** Camino 1: 106-107-108-126 *****************
-	@Test
-	void testnumPalabras1() {
-		assertThrows(IllegalArgumentException.class, () -> {editor.numPalabras(0, 0, "hola");});
-	}
-	
-	//************************** Camino 2:  106-107-109-110-126 *****************
-	@Test
-	void testnumPalabras2() {
-		assertThrows(IllegalArgumentException.class, () -> {editor.numPalabras(2, 10, "hola");});
-	}
-	
-	//************************** Camino 3:  106-107-109-111-112-126 *****************
-	@Test
-	void testnumPalabras3() {
-		editor.leerFichero("vacio.txt");
-		assertEquals(editor.numPalabras(1, 0, "cajablanca"), 0);
-	}
+	//** Camino 1: 106-107-108-126 **
+    @Test
+    void testnumPalabras1() {
+        assertThrows(IllegalArgumentException.class, () -> {editor.numPalabras(0, 0, "hola");});
+    }
 
-	//************************** Camino 5: 106-107-109-111-112-113-114-115-116-117-118-119-121-123-113-126 *****************
-	@Test
-	void testnumPalabras4() {
-		editor.leerFichero("cancion.txt");
-		System.out.print(editor.size());
-		assertEquals(editor.numPalabras(1, 2, "I'm"), 1);
-	}
-	
-	//************************** Camino 6: 106-107-109-111-112-113-114-115-116-117-118-121-123-113-126 *****************
-	@Test
-	void testnumPalabras5() {
-		editor.leerFichero("cancion.txt");
-		assertEquals(editor.numPalabras(1, 20, "cajablanca"), 0);
-	}
-	
-	//************************** Camino 7: 106-109-111-112-113-114-115-116-117-118-119-121-116-117-118-119-121-123-113-126 *****************
-	@Test
-	void testnumPalabras6() {
-		editor.leerFichero("cancion.txt");
-		assertEquals(editor.numPalabras(1, 20, "I"), 11);
-	}
-	
+    //** Camino 2:  106-107-109-110-126 **
+    @Test
+    void testnumPalabras2() {
+        assertThrows(IllegalArgumentException.class, () -> {editor.numPalabras(2, 10, "hola");});
+    }
+
+    //** Camino 3:  106-107-109-111-112-126 **
+    @Test
+    void testnumPalabras3() {
+        editor.leerFichero("vacio.txt");
+        assertEquals(editor.numPalabras(1, 0, "cajablanca"), 0);
+    }
+
+    //** Camino 4:  106-107-109-111-112-113-126 **
+    @Test
+    void testnumPalabras4() {
+        editor.leerFichero("cancion.txt");
+        System.out.print(editor.size());
+        assertEquals(editor.numPalabras(1, 1, "I'm"), 0);
+    }
+
+    //** Camino 5: 106-107-109-111-112-113-114-115-116-117-118-119-121-123-113-126 **
+    @Test
+    void testnumPalabras5() {
+        editor.leerFichero("cancion.txt");
+        System.out.print(editor.size());
+        assertEquals(editor.numPalabras(1, 2, "I'm"), 1);
+    }
+    //** Camino 6: 106-107-109-111-112-113-114-115-116-117-118-121-123-113-126 **
+    @Test
+    void testnumPalabras6() {
+        editor.leerFichero("cancion.txt");
+        assertEquals(editor.numPalabras(1, 20, "cajablanca"), 0);
+    }
+
+    //** Camino 7: 106-109-111-112-113-114-115-116-117-118-119-121-116-117-118-119-121-123-113-126 *
+    @Test
+    void testnumPalabras7() {
+        editor.leerFichero("cancion.txt");
+        assertEquals(editor.numPalabras(1, 20, "I"), 11);
+    }
 	//************************** Camino de mayorLongitud *****************
 	//************************** Camino 1: 152-153-154-167 *****************
 	@Test
@@ -83,13 +88,6 @@ class TestEditor {
 	void testmayorLongitud2() throws EmptyCollectionException {
 		editor.leerFichero("1linea.txt");
 		assertEquals(editor.mayorLongitud(),"a");
-	}
-	
-	//************************** Camino 5: 152-153-154-155-156-157-158-159-161-157-158-159-160-157-155-167 *****************
-	@Test
-	void testmayorLongitud3() throws EmptyCollectionException {
-		editor.leerFichero("cancion.txt");
-		assertEquals(editor.mayorLongitud(),"everybody");
 	}
 	
 	//************************** Camino de sustituirPalabras *****************
